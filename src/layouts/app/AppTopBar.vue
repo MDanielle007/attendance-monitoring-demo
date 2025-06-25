@@ -73,8 +73,9 @@
 import { ref, watch } from 'vue'
 import { useLayoutStore } from '@/stores/layoutStore'
 import { useThemeStore } from '@/stores/themeStore'
+import { useRouter } from 'vue-router'
 
-
+const router = useRouter()
 const layoutStore = useLayoutStore()
 const themeStore = useThemeStore();
 
@@ -115,7 +116,7 @@ const updateMenuItems = () => {
           label: 'Logout',
           icon: 'pi pi-sign-out',
           command: async () => {
-            await authStore.logout()
+            router.push({ name: 'login' })
           },
         },
 		{

@@ -67,9 +67,11 @@
 <script lang="ts" setup>
 import { useToast } from 'primevue'
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import PlaceholderItem from '@/components/PlaceholderItem.vue'
 import type { LoginCredentials } from '@/types/user'
 
+const router = useRouter();
 const toast = useToast()
 
 const error = ref('')
@@ -83,6 +85,8 @@ const handleSubmit = async () => {
 	error.value = '' // Clear previous errors
 
 	console.log(formData.value)
+
+	router.push({ name: 'admin-dashboard' }) // Simulate successful login
 
 	toast.add({
 		severity: 'info',

@@ -161,7 +161,7 @@
 						Use the scanner to record attendance for students.<br/>Ensure the RFID is registered in the system.
 					</p>
 				</div>
-				<InputText placeholder="Scan RFID or enter manually..." fluid v-model="studentRFID"/>
+				<InputText placeholder="Scan RFID or enter manually..." fluid v-model="studentRFID" @keydown.enter="handleSubmit"/>
 				<div class="flex gap-2">
 					<Button
 						label="Submit"

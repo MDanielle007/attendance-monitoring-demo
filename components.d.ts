@@ -56,6 +56,7 @@ declare module 'vue' {
     ScrollPanel: typeof import('primevue/scrollpanel')['default']
     ScrollTop: typeof import('primevue/scrolltop')['default']
     Select: typeof import('primevue/select')['default']
+    StudentAttendanceDataTable: typeof import('./src/components/datatables/StudentAttendanceDataTable.vue')['default']
     StudentManagementDataTable: typeof import('./src/components/datatables/StudentManagementDataTable.vue')['default']
     Tag: typeof import('primevue/tag')['default']
     Textarea: typeof import('primevue/textarea')['default']

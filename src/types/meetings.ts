@@ -1,9 +1,16 @@
 export type MeetingType = 'online' | 'face-to-face'
 
-export interface Meetings{
+export type AttendanceSummary = {
+	present: number
+	late: number
+	absent: number
+	not_scanned: number
+}
+
+export interface Meetings {
 	id: number
 	class_id: number
-	type:MeetingType
+	type: MeetingType
 	meeting_date: Date | Date[] | (Date | null)[] | null | undefined
 	start_time: Date | Date[] | (Date | null)[] | null | undefined
 	end_time: Date | Date[] | (Date | null)[] | null | undefined
@@ -16,15 +23,12 @@ export interface Meetings{
 export interface MeetingListRecord {
 	id: number
 	name: string
-	meeting_date: Date
-	start_time: Date
-	end_time: Date
+	meeting_date: string
+	start_time: string
+	end_time: string
 	type: MeetingType | string
-	present: number
-	late: number
-	absent: number
-	notScanned: number
 	status: string
+	attendance_summary: AttendanceSummary
 }
 
 export interface MeetingFormCreate {
@@ -34,4 +38,14 @@ export interface MeetingFormCreate {
 	meeting_date: Date | Date[] | (Date | null)[] | null | undefined
 	start_time: Date | Date[] | (Date | null)[] | null | undefined
 	end_time: Date | Date[] | (Date | null)[] | null | undefined
+}
+
+export type AttendanceStudents = {
+	id: number
+	id_number: string
+	first_name: string
+	middle_name: string
+	last_name: string
+	status: string
+	time?: string
 }

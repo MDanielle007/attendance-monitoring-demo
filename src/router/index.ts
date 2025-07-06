@@ -85,6 +85,12 @@ const router = createRouter({
 					component: () => import('../views/class/ClassDetailsPage.vue'),
 					props: true,
 				},
+				{
+					path: '/classes/:ref/:id/attendance/',
+					name: 'class-attendance-page',
+					component: () => import('../views/class/ClassAttendancePage.vue'),
+					props: true,
+				},
 
 				{
 					path: '/attendance-logs',
@@ -111,7 +117,6 @@ const router = createRouter({
 					path: '/:pathMatch(.*)*',
 					name: 'not-found',
 					component: () => import('../views/error/NotFoundPage.vue'),
-
 				},
 				{
 					path: '/unauthorized',

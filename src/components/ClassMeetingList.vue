@@ -26,11 +26,12 @@
 					:startTime="item.start_time"
 					:endTime="item.end_time"
 					:type="item.type"
-					:present="item.present"
-					:late="item.late"
-					:absent="item.absent"
-					:notScanned="item.notScanned"
+					:present="item.attendance_summary.present"
+					:late="item.attendance_summary.late"
+					:absent="item.attendance_summary.absent"
+					:notScanned="item.attendance_summary.not_scanned"
 					:status="item.status"
+					:showActions="true"
 				/>
 			</div>
 		</ScrollPanel>
@@ -46,70 +47,110 @@ const createdialog = ref(false)
 
 const meetings = ref<MeetingListRecord[]>([
 	{
-		id: 5,
-		name: 'Meeting 005 CS101 - 1-F1',
-		meeting_date: new Date('2025-06-06'),
-		start_time: new Date('2025-06-06T08:00:00'),
-		end_time: new Date('2025-06-06T09:30:00'),
-		type: 'face-to-face',
-		present: 32,
-		late: 0,
-		absent: 2,
-		notScanned: 1,
-		status: 'on going',
-	},
-	{
-		id: 4,
-		name: 'Meeting 004 CS101 - 1-F1',
-		meeting_date: new Date('2025-06-05'),
-		start_time: new Date('2025-06-05T08:00:00'),
-		end_time: new Date('2025-06-05T09:30:00'),
-		type: 'face-to-face',
-		present: 31,
-		late: 2,
-		absent: 1,
-		notScanned: 0,
-		status: 'finished',
-	},
-	{
-		id: 3,
-		name: 'Meeting 003 CS101 - 1-F1',
-		meeting_date: new Date('2025-06-03'),
-		start_time: new Date('2025-06-03T08:00:00'),
-		end_time: new Date('2025-06-03T09:30:00'),
-		type: 'face-to-face',
-		present: 28,
-		late: 1,
-		absent: 4,
-		notScanned: 3,
-		status: 'finished',
-	},
-	{
-		id: 2,
-		name: 'Meeting 002 CS101 - 1-F1',
-		meeting_date: new Date('2025-06-01'),
-		start_time: new Date('2025-06-01T08:00:00'),
-		end_time: new Date('2025-06-01T09:30:00'),
-		type: 'face-to-face',
-		present: 30,
-		late: 1,
-		absent: 3,
-		notScanned: 2,
-		status: 'finished',
-	},
-	{
-		id: 1,
-		name: 'Meeting 001 CS101 - 1-F1',
-		meeting_date: new Date('2025-05-30'),
-		start_time: new Date('2025-05-30T08:00:00'),
-		end_time: new Date('2025-05-30T09:30:00'),
-		type: 'face-to-face',
-		present: 29,
-		late: 2,
-		absent: 5,
-		notScanned: 0,
-		status: 'finished',
-	},
+            id: 7,
+            name: "7th Meeting ITC101 - 1-A",
+            meeting_date: "2025-07-06",
+            start_time: "07:30:00",
+            end_time: "09:30:00",
+            type: "face-to-face",
+            status: "on going",
+            attendance_summary: {
+                "present": 0,
+                "late": 0,
+                "absent": 1,
+                "not_scanned": 3
+            }
+        },
+        {
+            id: 6,
+            name: "6th Meeting ITC101 - 1-A",
+            meeting_date: "2025-07-06",
+            start_time: "07:30:00",
+            end_time: "09:30:00",
+            type: "face-to-face",
+            status: "finished",
+            attendance_summary: {
+                "present": 0,
+                "late": 1,
+                "absent": 3,
+                "not_scanned": 0
+            }
+        },
+        {
+            id: 5,
+            name: "5th Meeting ITC101 - 1-A",
+            meeting_date: "2025-07-06",
+            start_time: "07:30:00",
+            end_time: "09:30:00",
+            type: "face-to-face",
+            status: "finished",
+            attendance_summary: {
+                "present": 0,
+                "late": 0,
+                "absent": 4,
+                "not_scanned": 0
+            }
+        },
+        {
+            id: 4,
+            name: "4th Meeting ITC101 - 1-A",
+            meeting_date: "2025-07-06",
+            start_time: "07:30:00",
+            end_time: "09:30:00",
+            type: "face-to-face",
+            status: "finished",
+            attendance_summary: {
+                "present": 0,
+                "late": 0,
+                "absent": 4,
+                "not_scanned": 0
+            }
+        },
+        {
+            id: 3,
+            name: "3rd Meeting ITC101 - 1-A",
+            meeting_date: "2025-07-06",
+            start_time: "07:30:00",
+            end_time: "09:30:00",
+            type: "face-to-face",
+            status: "finished",
+            attendance_summary: {
+                "present": 0,
+                "late": 0,
+                "absent": 4,
+                "not_scanned": 0
+            }
+        },
+        {
+            id: 2,
+            name: "2nd Meeting ITC101 - 1-A",
+            meeting_date: "2025-07-05",
+            start_time: "07:30:00",
+            end_time: "09:30:00",
+            type: "face-to-face",
+            status: "finished",
+            attendance_summary: {
+                "present": 0,
+                "late": 0,
+                "absent": 4,
+                "not_scanned": 0
+            }
+        },
+        {
+            id: 1,
+            name: "1st Meeting ITC101 - 1-A",
+            meeting_date: "2025-06-25",
+            start_time: "07:30:00",
+            end_time: "09:30:00",
+            type: "face-to-face",
+            status: "finished",
+            attendance_summary: {
+                "present": 0,
+                "late": 0,
+                "absent": 4,
+                "not_scanned": 0
+            }
+        }
 ])
 
 onMounted(() => {
